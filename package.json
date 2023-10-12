@@ -1,0 +1,20 @@
+{
+  "name": "manageyourdaybackend",
+  "version": "1.0.0",
+  "description": "backend service of manageYourDay application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jyjian2/manageYourDayBackend.git"
+  },
+  "author": "Jiayi Jian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jyjian2/manageYourDayBackend/issues"
+  },
+  "homepage": "https://github.com/jyjian2/manageYourDayBackend#readme"
+}
