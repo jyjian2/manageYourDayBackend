@@ -1,4 +1,5 @@
 const express = require('express');
+const app = express();
 
 let notes = [
     {
@@ -19,16 +20,17 @@ let notes = [
 ]
 
 
-//use createServer mrthod to create a web server
-//an event handler is called every time a HTTP request is made to the server's address
-const app = http.createServer((request, response) => {
-    //content-type header informs the receiver that the data is in JSON format
-    response.writeHead(200, {'Content-Type': 'application/json'})
-    response.end(JSON.stringify(notes))
+app.get('/', (request, response) => {
+    response.send('<h1>Hello World</h1>')
+})
+
+app.get('/api/notes', (request, response) => {
+    response.json(notes)
 })
 
 
 //bond HTTP server to listen to HTTP request sent to port 3001
 const PORT = 3001
-app.listen(PORT)
-console.log(`Server is running on ${PORT}`)
+app.listen(PORT, ()=> {
+    console.log(`Server running on port ${PORT}`)
+})
