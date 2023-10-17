@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/jyjian2/manageYourDayBackend/issues"
   },
-  "homepage": "https://github.com/jyjian2/manageYourDayBackend#readme"
+  "homepage": "https://github.com/jyjian2/manageYourDayBackend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }

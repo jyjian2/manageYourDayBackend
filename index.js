@@ -1,4 +1,4 @@
-const http = require('http');
+const express = require('express');
 
 let notes = [
     {
@@ -22,8 +22,9 @@ let notes = [
 //use createServer mrthod to create a web server
 //an event handler is called every time a HTTP request is made to the server's address
 const app = http.createServer((request, response) => {
-    response.writeHead(200, {'Content-Type': 'text/plain'})
-    response.end('Hello World')
+    //content-type header informs the receiver that the data is in JSON format
+    response.writeHead(200, {'Content-Type': 'application/json'})
+    response.end(JSON.stringify(notes))
 })
 
 
