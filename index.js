@@ -21,6 +21,7 @@ let notes = [
 
 
 app.get('/', (request, response) => {
+    console.log(response)
     response.send('<h1>Hello World</h1>')
 })
 
