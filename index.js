@@ -29,6 +29,19 @@ app.get('/api/notes', (request, response) => {
     response.json(notes)
 })
 
+app.get('/api/notes/:id', (request, response) => {
+    //conert datatype of attribute "id" from string to Number
+    const id = Number(request.params.id)
+    const note = notes.find(n => n.id === id)
+
+    //gives it a condition of finding note or not
+    if (note) {
+        response.json(note)
+    } else {
+        response.send("No note is found")
+        response.status(404).end()
+    }
+})
 
 //bond HTTP server to listen to HTTP request sent to port 3001
 const PORT = 3001
