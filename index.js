@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+//json-parser middleware
+//middleware: functions that can be used for handling request and response objects
 app.use(express.json())
 
 let notes = [
@@ -78,6 +80,13 @@ app.post('/api/notes', (request, response) => {
     notes = notes.concat(note)
     response.json(note)
 })
+
+//add iddleware for catching requests to non-existent routes
+const unknownEndpoint = (request, response) => {
+    response.status(404).send({error: 'unknown endpoint'})
+}
+
+app.use(unknownEndpoint)
 
 //bond HTTP server to listen to HTTP request sent to port 3001
 const PORT = 3001
