@@ -7,6 +7,8 @@ const cors  = require('cors');
 app.use(express.json())
 //allow requests from other resources using cors middleware
 app.use(cors())
+//make express show static content
+app.use(express.static('dist'))
 
 let notes = [
     {
@@ -92,7 +94,7 @@ const unknownEndpoint = (request, response) => {
 app.use(unknownEndpoint)
 
 //bond HTTP server to listen to HTTP request sent to port 3001
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, ()=> {
     console.log(`Server running on port ${PORT}`)
 })
