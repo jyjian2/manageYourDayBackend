@@ -6,7 +6,7 @@ const cors  = require('cors');
 //middleware: functions that can be used for handling request and response objects
 app.use(express.json())
 //allow requests from other resources using cors middleware
-app.use(cors)
+app.use(cors())
 
 let notes = [
     {
