@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
+const cors  = require('cors');
 
 //json-parser middleware
 //middleware: functions that can be used for handling request and response objects
 app.use(express.json())
+//allow requests from other resources using cors middleware
+app.use(cors)
 
 let notes = [
     {
@@ -81,7 +84,7 @@ app.post('/api/notes', (request, response) => {
     response.json(note)
 })
 
-//add iddleware for catching requests to non-existent routes
+//add middleware for catching requests to non-existent routes
 const unknownEndpoint = (request, response) => {
     response.status(404).send({error: 'unknown endpoint'})
 }
