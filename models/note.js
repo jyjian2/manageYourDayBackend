@@ -17,11 +17,17 @@ mongoose.connect('connect to', url)
 //the schema tells Mongoose how the note objects are to be stored in the database
 const noteSchema = new mongoose.Schema(
     {
-        content: String,
+        // define specific validation rules for content field in the schema
+        content: {
+            type: String,
+            minLength: 5,
+            required: true
+        },
         important: Boolean,
     }
 )
 
+//Change we dont's want to return the mongo versioning file __v to the frontend
 noteSchema.set('toJSON', {
     transform: (document, returnedObject) => {
       returnedObject.id = returnedObject._id.toString()
