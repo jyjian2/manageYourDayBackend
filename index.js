@@ -1,4 +1,5 @@
-require('dotenv').config();
+const config = require('./utils/config')
+const logger = require('./utils/logger')
 const express = require('express');
 const app = express();
 const cors  = require('cors');
@@ -106,8 +107,6 @@ const errorHandler = (error, request, response, next) => {
 //handler of requests with result to errors
 app.use(errorHandler)
 
-//bond HTTP server to listen to HTTP request sent to port 3001
-const PORT = process.env.PORT
-app.listen(PORT, ()=> {
-    console.log(`Server running on port ${PORT}`)
+app.listen(config.PORT, ()=> {
+    logger.info(`Server running on port ${config.PORT}`)
 })
